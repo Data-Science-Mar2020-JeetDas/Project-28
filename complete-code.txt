@@ -1,0 +1,480 @@
+
+
+# -*- coding: utf-8 -*-
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import random
+import pandas
+
+
+df = pd.read_csv("C:/Users/Jeet Das/Desktop/Project-28.csv",encoding="utf-8")
+
+print("\n----------------------- output data :---------------------\n")
+print("Project-28 : Antenatal care attendees positive for syphilis who received treatment (%) [By WHO]");
+print("\n------------------------------------------------------------\n")
+
+
+# Question – A : get row and column numbers 
+
+print('---------------------------------------------')
+print("Dimension of the data frame = ",df.shape)
+print('---------------------------------------------')
+
+# Question – B : print column names :
+
+print('------------------------\n Column names as follows :')
+print('------------------------\n')
+count = 0
+for col in df.columns: 
+        print(count,"-->",col)
+        count = count+1
+print("\n-----------------------------\n")
+
+# Question - C : print available country
+
+country = df.groupby(['Location'])[['Period']].count()
+print("---------------------------------")
+print("\tAvailable country names : ")
+print("-------------------------------")
+print(country)
+print("-------------------------------")
+count = 0
+for row in range(len(country)): 
+        count = count+1
+print("total no. of country = ",count)        
+print("-----------------------------\n")
+
+
+# Question - D : Available years data for which data is available
+
+years = df.groupby(['Period'])[['Location']].count()
+print("---------------------------------")
+print("\tAvailable years data : ")
+print("-------------------------------")
+print(years)
+print("-------------------------------")
+count = 0
+for row in range(len(years)): 
+        count = count+1
+print("total no. of years = ",count)        
+print("-----------------------------\n")
+
+
+# Question - E :Types of available indicators
+
+indicator = df.groupby(['Indicator'])[['Period']].count()
+print("---------------------------------")
+print("\tAvailable types of indicators : ")
+print("-------------------------------")
+print(indicator)
+print("-------------------------------")
+count = 0
+for row in range(len(indicator)): 
+        count = count+1
+print("total no. of indicators = ",count)        
+print("-----------------------------\n")
+
+# Question - E :Types of available indicators
+
+indicator = df.groupby(['Indicator'])[['Period']].count()
+print("---------------------------------")
+print("\tAvailable types of indicators : ")
+print("-------------------------------")
+print(indicator)
+print("-------------------------------")
+count = 0
+for row in range(len(indicator)): 
+        count = count+1
+print("total no. of indicators = ",count)        
+print("-----------------------------\n")
+
+
+# Question - 01 : Afghanistan
+
+Afghanistan = df[df.Location == 'Afghanistan']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Afghanistan[['Location','Period','First Tooltip']])
+
+# Question - 02 : Algeria  
+
+Algeria  = df[df.Location == 'Algeria']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Algeria[['Location','Period','First Tooltip']])                                                                         
+
+# Question - 03 : Argentina 
+
+Argentina  = df[df.Location == 'Argentina']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Argentina[['Location','Period','First Tooltip']])                                  
+
+# Question - 04 : Armenia 
+
+Armenia = df[df.Location == 'Armenia']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Armenia[['Location','Period','First Tooltip']])
+
+# Question - 05 : Bangladesh
+
+Bangladesh = df[df.Location == 'Bangladesh']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Bangladesh[['Location','Period','First Tooltip']])
+
+# Question - 06 : Central African Republic
+
+Central_African_Republic = df[df.Location == 'Central African Republic']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Central_African_Republic[['Location','Period','First Tooltip']])
+
+# Question - 07 : Chad
+
+Chad = df[df.Location == 'Chad']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Chad[['Location','Period','First Tooltip']])
+
+# Question - 08 : China
+
+China = df[df.Location == 'China']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(China[['Location','Period','First Tooltip']])
+
+# Question - 09 : India
+
+India = df[df.Location == 'India']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(India[['Location','Period','First Tooltip']])
+
+# Question - 10 : Indonesia
+
+Indonesia = df[df.Location == 'Indonesia']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Indonesia[['Location','Period','First Tooltip']])
+
+# Question - 11 : Thailand
+
+Thailand = df[df.Location == 'Thailand']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Thailand[['Location','Period','First Tooltip']])
+
+# Question - 12 : United Arab Emirates
+
+UAE = df[df.Location == 'United Arab Emirates']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(UAE[['Location','Period','First Tooltip']])
+
+# Question - 13 : Saudi Arabia
+
+Saudi_Arabia = df[df.Location == 'Saudi Arabia']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Saudi_Arabia[['Location','Period','First Tooltip']])
+
+# Question - 14 : South Africa
+
+South_Africa = df[df.Location == 'South Africa']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(South_Africa[['Location','Period','First Tooltip']])
+
+# Question - 15 : Chile
+
+Chile = df[df.Location == 'Chile']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Chile[['Location','Period','First Tooltip']])
+
+# Question - 16 : Brazil
+
+Brazil = df[df.Location == 'Brazil']
+print("\n\n--------------[ OUTPUT ]----------------------\n\n")
+print(Brazil[['Location','Period','First Tooltip']])
+
+
+----------------------- output data :---------------------
+
+Project-28 : Antenatal care attendees positive for syphilis who received treatment (%) [By WHO]
+
+------------------------------------------------------------
+
+---------------------------------------------
+Dimension of the data frame =  (455, 4)
+---------------------------------------------
+------------------------
+ Column names as follows :
+------------------------
+
+0 --> Location
+1 --> Period
+2 --> Indicator
+3 --> First Tooltip
+
+-----------------------------
+
+---------------------------------
+        Available country names : 
+-------------------------------
+                                                    Period
+Location                                                  
+Afghanistan                                              3
+Algeria                                                  1
+Angola                                                   1
+Antigua and Barbuda                                      6
+Argentina                                                5
+Bahamas                                                  4
+Bangladesh                                               6
+Barbados                                                 6
+Belarus                                                  8
+Belize                                                   3
+Benin                                                    4
+Bolivia (Plurinational State of)                         5
+Botswana                                                 1
+Brazil                                                   5
+Bulgaria                                                 1
+Burkina Faso                                             6
+Cabo Verde                                               4
+Cambodia                                                 6
+Central African Republic                                 5
+Chad                                                     1
+Chile                                                    4
+China                                                    2
+Colombia                                                 7
+Cook Islands                                             2
+Costa Rica                                               3
+Cuba                                                     8
+Czechia                                                  1
+Democratic Republic of the Congo                         4
+Denmark                                                  1
+Dominica                                                 4
+                                                   ...
+Saint Vincent and the Grenadines                         1
+Samoa                                                    6
+Sao Tome and Principe                                    6
+Saudi Arabia                                             5
+Senegal                                                  3
+Serbia                                                   1
+Seychelles                                               6
+Sierra Leone                                             2
+Singapore                                                1
+Slovakia                                                 3
+Solomon Islands                                          3
+Somalia                                                  1
+South Africa                                             1
+South Sudan                                              1
+Sri Lanka                                                8
+Tajikistan                                               5
+Thailand                                                 7
+Togo                                                     6
+Tonga                                                    3
+Trinidad and Tobago                                      4
+Tuvalu                                                   2
+Ukraine                                                  6
+United Arab Emirates                                     7
+United Kingdom of Great Britain and Northern Ir...       1
+United Republic of Tanzania                              5
+Uruguay                                                  6
+Vanuatu                                                  3
+Venezuela (Bolivarian Republic of)                       1
+Zambia                                                   6
+Zimbabwe                                                 4
+
+[112 rows x 1 columns]
+-------------------------------
+total no. of country =  112
+-----------------------------
+
+---------------------------------
+        Available years data : 
+-------------------------------
+        Location
+Period          
+2010.0         9
+2011.0        31
+2012.0        43
+2013.0        44
+2014.0        65
+2015.0        66
+2016.0        65
+2017.0        62
+2018.0        67
+-------------------------------
+total no. of years =  9
+-----------------------------
+
+---------------------------------
+        Available types of indicators : 
+-------------------------------
+                                                    Period
+Indicator                                                 
+Antenatal care attendees positive for syphilis ...     452
+-------------------------------
+total no. of indicators =  1
+-----------------------------
+
+---------------------------------
+        Available types of indicators : 
+-------------------------------
+                                                    Period
+Indicator                                                 
+Antenatal care attendees positive for syphilis ...     452
+-------------------------------
+total no. of indicators =  1
+-----------------------------
+
+
+
+--------------[ OUTPUT ]----------------------
+
+
+      Location  Period  First Tooltip
+0  Afghanistan  2017.0          100.0
+1  Afghanistan  2016.0          100.0
+2  Afghanistan  2015.0          100.0
+
+
+--------------[ OUTPUT ]----------------------
+
+
+  Location  Period  First Tooltip
+3  Algeria  2014.0          100.0
+
+
+--------------[ OUTPUT ]----------------------
+
+
+     Location  Period  First Tooltip
+11  Argentina  2015.0           82.2
+12  Argentina  2014.0           84.7
+13  Argentina  2012.0           83.1
+14  Argentina  2011.0           74.1
+15  Argentina  2010.0           74.1
+
+
+--------------[ OUTPUT ]----------------------
+
+
+Empty DataFrame
+Columns: [Location, Period, First Tooltip]
+Index: []
+
+
+--------------[ OUTPUT ]----------------------
+
+
+      Location  Period  First Tooltip
+20  Bangladesh  2018.0          100.0
+21  Bangladesh  2017.0          100.0
+22  Bangladesh  2016.0          100.0
+23  Bangladesh  2015.0          100.0
+24  Bangladesh  2014.0          100.0
+25  Bangladesh  2013.0           50.0
+
+
+--------------[ OUTPUT ]----------------------
+
+
+                    Location  Period  First Tooltip
+75  Central African Republic  2018.0         100.00
+76  Central African Republic  2017.0          97.40
+77  Central African Republic  2016.0          88.43
+78  Central African Republic  2015.0          42.70
+79  Central African Republic  2011.0          97.80
+
+
+--------------[ OUTPUT ]----------------------
+
+
+   Location  Period  First Tooltip
+80     Chad  2013.0          100.0
+
+
+--------------[ OUTPUT ]----------------------
+
+
+   Location  Period  First Tooltip
+85    China  2014.0           68.1
+86    China  2012.0           63.1
+
+
+--------------[ OUTPUT ]----------------------
+
+
+    Location  Period  First Tooltip
+177    India  2018.0          54.70
+178    India  2017.0          47.60
+179    India  2016.0          74.74
+180    India  2015.0          23.70
+181    India  2014.0          20.90
+182    India  2012.0          89.00
+
+
+--------------[ OUTPUT ]----------------------
+
+
+      Location  Period  First Tooltip
+183  Indonesia  2018.0          51.70
+184  Indonesia  2016.0          30.08
+185  Indonesia  2015.0          15.64
+186  Indonesia  2014.0          50.37
+187  Indonesia  2013.0          49.60
+
+
+--------------[ OUTPUT ]----------------------
+
+
+     Location  Period  First Tooltip
+394  Thailand  2018.0          98.10
+395  Thailand  2017.0          97.50
+396  Thailand  2015.0          96.20
+397  Thailand  2014.0          97.79
+398  Thailand  2013.0          97.90
+399  Thailand  2012.0          93.10
+400  Thailand  2011.0         100.00
+
+
+--------------[ OUTPUT ]----------------------
+
+
+                 Location  Period  First Tooltip
+422  United Arab Emirates  2018.0        100.000
+423  United Arab Emirates  2017.0         50.000
+424  United Arab Emirates  2016.0          0.038
+425  United Arab Emirates  2015.0         80.000
+426  United Arab Emirates  2014.0         80.000
+427  United Arab Emirates  2012.0        100.000
+428  United Arab Emirates  2011.0        100.000
+
+
+--------------[ OUTPUT ]----------------------
+
+
+         Location  Period  First Tooltip
+353  Saudi Arabia  2018.0          100.0
+354  Saudi Arabia  2017.0          100.0
+355  Saudi Arabia  2016.0            0.0
+356  Saudi Arabia  2015.0          100.0
+357  Saudi Arabia  2013.0          100.0
+
+
+--------------[ OUTPUT ]----------------------
+
+
+         Location  Period  First Tooltip
+379  South Africa  2018.0           80.0
+
+
+--------------[ OUTPUT ]----------------------
+
+
+   Location  Period  First Tooltip
+81    Chile  2018.0            0.0
+82    Chile  2015.0           93.2
+83    Chile  2014.0           93.6
+84    Chile  2011.0          100.0
+
+
+--------------[ OUTPUT ]----------------------
+
+
+   Location  Period  First Tooltip
+53   Brazil  2018.0           90.1
+54   Brazil  2017.0           88.9
+55   Brazil  2014.0           86.3
+56   Brazil  2012.0           83.4
+57   Brazil  2010.0           80.6
